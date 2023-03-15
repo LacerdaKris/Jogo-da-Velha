@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 10px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  color: #ffffff;
+  font-family: "Luckiest Guy";
+  text-shadow: 0 0.1em 7px #000000, 0.05em -0.03em 0 #000000,
+  0.05em 0.005em 0 #000000, 0em 0.08em 0 #000000,
+  0.05em 0.08em 0 #000000, 0px -0.03em 0 #000000,
+  -0.2em -0.03em 0 #000000, -0.3em 0.08em 0 #000000, -0.03em 0 0 #000000;
+}
+
+body{
+  background-image: url(https://i.pinimg.com/736x/e2/e5/61/e2e561a4b17a2c7c512147e06627300c.jpg);
+  background-size: 100% 110%;
+  background-repeat: no-repeat;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+section {
+  padding: .5rem 1rem;
+  font-size: 17px;
+}
+
+#areaIniciar > button {
+  width: 300px;
+  height: 30px;
+  border-radius: 0.40rem;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 5px 5px 0 #352a08;
+  background-color: rgb(243, 232, 217);
+}
+
+form {
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr 8fr;
+}
+
+#jogo{
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  text-align: center;
+  margin-left: 25%;
+}
+
+#quadrantes {
+  background-color: black;
+  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 6rem 6rem 6rem;
+  grid-template-rows: 6rem 6rem 6rem;
+  max-width: 19rem;
+}
+
+#jogador1 {
+  margin-left: 6rem;
+  padding: 22px;
+  border: dashed;
+  border-radius: 80%;
+  border-color: white;
+}
+
+#jogador2 {
+  padding: 22px;
+  border: dashed;
+  border-radius: 80%;
+  border-color: white;
+}
+
+.botões {
+  border: none;
+  background-color: white;
+  font-size: 90px;
+  line-height: 15px;
+  cursor: pointer;
+  place-content: center;
+}
+
+.botões:hover {
+  filter: brightness(0.92);
+  background-color: #dfb3b5;
+}
+
+/* para alterar a cor dos botões com a classe vencedor */
+#quadrantes button.vencedor {
+  background-color: #5d82f3;
+}
