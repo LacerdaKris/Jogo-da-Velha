@@ -54,6 +54,7 @@ let jogarNovamente = document.createElement("button");
 jogarNovamente.innerText = "JOGAR NOVAMENTE";
 
 let vezDeJogar = "jogador1"
+let quadranteClicado;
 //execução do jogo
 function jogar() {
   jogo.removeChild(iniciar);
@@ -86,9 +87,7 @@ function jogar() {
         jogo.appendChild(h2);
         h2.innerText = vencedor + " venceu!";
         jogo.appendChild(jogarNovamente);
-        quadrantes.forEach(function (quadrante) {
-          quadrante.removeEventListener("click", quadranteClicado)
-        })
+        removerEventListeners();
         limparVezDeJogar();
       } else if (botõesPreenchidos()) {
         jogo.appendChild(h2);
@@ -144,6 +143,12 @@ function verificaGanhador() {
   }
   //não há ganhador
   return null;
+}
+
+function removerEventListeners() {
+  quadrantes.forEach(function(quadrante) {
+    quadrante.removeEventListener("click", quadranteClicado);
+  });
 }
 
 //deixar pronto para nova partida
