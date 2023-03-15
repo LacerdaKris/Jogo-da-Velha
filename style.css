@@ -22,11 +22,10 @@ header {
 
 body{
   background-image: url(https://i.pinimg.com/736x/e2/e5/61/e2e561a4b17a2c7c512147e06627300c.jpg);
-  background-size: 100% 100%;
+  background-size: 100% 110%;
   background-repeat: no-repeat;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-attachment: fixed;
-  background-position: center center;
 }
 
 section {
