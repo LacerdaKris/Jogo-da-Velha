@@ -157,6 +157,7 @@ function limparJogo() {
     quadrante.innerText = "";
     quadrante.classList.remove("vencedor");
   });
+  removerEventListeners();
   limparVezDeJogar();
   jogo.appendChild(iniciar);
   jogo.removeChild(h2);
