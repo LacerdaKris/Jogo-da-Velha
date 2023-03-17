@@ -30,7 +30,7 @@ body::before {
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: -1;
-  opacity: 0.5; /* define a opacidade de 50%*/
+  opacity: 0.5; /* define a opacidade como 70% */
   content: '';
   position: fixed;
   top: 0;
@@ -51,14 +51,14 @@ section {
   cursor: pointer;
   font-size: 18px;
   box-shadow: 0 5px 5px 0 #352a08;
-  background-color: #faecf0;
+  background-color: rgb(243, 232, 217);
 }
 
 form {
   justify-items: center;
   align-items: center;
-  display: grid;
-  grid-template-columns: 3fr 1fr 3fr 8fr;
+  display: flex;
+  justify-items: flex-start;
 }
 
 #jogo{
