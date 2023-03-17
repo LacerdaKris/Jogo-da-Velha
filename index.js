@@ -3,7 +3,6 @@ let simbolo2 = document.querySelector("input[name='simbolo2']");
 const jogo = document.getElementById("areaIniciar");
 const quadrantes = document.querySelectorAll("button[class='botões']");
 
-
 //começar com opções radio marcadas, clicando pode trocar
 simbolo1.value = "X";
 simbolo2.value = "O";
@@ -53,52 +52,56 @@ let h2 = document.createElement("h2");
 let jogarNovamente = document.createElement("button");
 jogarNovamente.innerText = "JOGAR NOVAMENTE";
 
-let vezDeJogar = "jogador1"
-let quadranteClicado;
+let vezDeJogar = "jogador1";
+
 //execução do jogo
 function jogar() {
   jogo.removeChild(iniciar);
-  vezDeJogar === "jogador1" ? jogador1.style.setProperty("border-color", "#ca7397") : jogador2.style.setProperty("border-color", "#ca7397");
+  vezDeJogar === "jogador1"
+    ? jogador1.style.setProperty("border-color", "#ca7397")
+    : jogador2.style.setProperty("border-color", "#ca7397");
   //add ouvinte aos botões do jogo, e chama função que alterna a vezDeJogar
   quadrantes.forEach(function (quadrante) {
-    quadrante.addEventListener("click", function quadranteClicado() {
-      if (vezDeJogar === "jogador1") {
-        quadrante.innerText = simbolo1.value;
-        jogador1.style.setProperty("border-color", "white");
-        jogador2.style.setProperty("border-color", "#ca7397");
-        vezDeJogar = "jogador2";
-      } else if (vezDeJogar === "jogador2") {
-        quadrante.innerText = simbolo2.value;
-        jogador1.style.setProperty("border-color", "#ca7397");
-        jogador2.style.setProperty("border-color", "white");
-        vezDeJogar = "jogador1";
-      }
-      
-      //remove o event listener após o primeiro clique
-      quadrante.removeEventListener("click", quadranteClicado)
-    
-      //verifica após cada clique se há vencedor ou empate
-      const alguemVenceu = verificaGanhador();
-      if (alguemVenceu !== null) {
-        const jogador1 = document.getElementById("nome1")
-        const jogador2 = document.getElementById("nome2")
-        let vencedor = ""
-        vezDeJogar === "jogador1" ? vencedor=jogador2.value : vencedor=jogador1.value;
-        jogo.appendChild(h2);
-        h2.innerText = vencedor + " venceu!";
-        jogo.appendChild(jogarNovamente);
-        removerEventListeners();
-        limparVezDeJogar();
-      } else if (botõesPreenchidos()) {
-        jogo.appendChild(h2);
-        h2.innerText = "Empate!";
-        jogo.appendChild(jogarNovamente);
-        limparVezDeJogar();
-      }
-    })    
-  })
-};
+    quadrante.addEventListener("click", quadranteClicado);
+  });
+}
 
+function quadranteClicado(event) {
+  const quadrante = event.target;
+  if (vezDeJogar === "jogador1") {
+    quadrante.innerText = simbolo1.value;
+    jogador1.style.setProperty("border-color", "white");
+    jogador2.style.setProperty("border-color", "#ca7397");
+    vezDeJogar = "jogador2";
+  } else if (vezDeJogar === "jogador2") {
+    quadrante.innerText = simbolo2.value;
+    jogador1.style.setProperty("border-color", "#ca7397");
+    jogador2.style.setProperty("border-color", "white");
+    vezDeJogar = "jogador1";
+  }
+  //remove o event listener após o primeiro clique
+  quadrante.removeEventListener("click", quadranteClicado);
+  //verifica após cada clique se há vencedor ou empate
+  const alguemVenceu = verificaGanhador();
+  if (alguemVenceu !== null) {
+    const jogador1 = document.getElementById("nome1");
+    const jogador2 = document.getElementById("nome2");
+    let vencedor = "";
+    vezDeJogar === "jogador1"
+      ? (vencedor = jogador2.value)
+      : (vencedor = jogador1.value);
+    jogo.appendChild(h2);
+    h2.innerText = vencedor + " venceu!";
+    jogo.appendChild(jogarNovamente);
+    removerEventListeners();
+    limparVezDeJogar();
+  } else if (botõesPreenchidos()) {
+    jogo.appendChild(h2);
+    h2.innerText = "Empate!";
+    jogo.appendChild(jogarNovamente);
+    limparVezDeJogar();
+  }
+}
 jogarNovamente.addEventListener("click", limparJogo);
 
 //verifica se todos os botões do jogo tem innerText preenchido
@@ -146,7 +149,7 @@ function verificaGanhador() {
 }
 
 function removerEventListeners() {
-  quadrantes.forEach(function(quadrante) {
+  quadrantes.forEach(function (quadrante) {
     quadrante.removeEventListener("click", quadranteClicado);
   });
 }
